@@ -11,6 +11,9 @@ else
   echo "$USER" > "$1/author"
   git clone https://github.com/cmicheledelaney/libft "$1/libft"
   mv "$1/libft" "$1/srcs/"
+  if [[ ! -f Makefile_template ]]; then
+    curl https://raw.githubusercontent.com/cmicheledelaney/42project/master/Makefile_template > Makefile_template
+  fi
   cp ~/Makefile_template "$1/Makefile"
   sed -i "s/PROJECTNAME/$1/g" "$1/Makefile"
 fi
