@@ -17,6 +17,8 @@ Add this line to your .bashrc/.zshrc/.profile:
 `export PATH="$PATH:~/bin"`  
 Move the script into the bin directory:  
 `mv 42project/42project ~/bin`  
+Add the executable bit:  
+`chmod +x ~/bin/42project`
 Depending on where you want to store the Makefile template or if you want to use another one, change lines 14 and 15 accordingly. By default it clones my libft, feel free to change the URL in line 12 to the URL of your libft.
 
 #### Run
