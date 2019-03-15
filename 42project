@@ -1,13 +1,14 @@
 #!/bin/bash
 
-if [[ -d $1 ]]; then
-  echo "directory $1 already exists!"
+if [[ -d "$1" || -f "$1" ]]; then
+  echo "file or directory $1 already exists!"
 else
-  mkdir $1
-  mkdir $1/srcs
-  mkdir $1/includes
-  touch $1/srcs/$.c
-  touch $1/includes/$.h
-  git clone https://github.com/cmicheledelaney/libft
-  cp ~/Makefile_template Makefile
+  mkdir "$1"
+  mkdir "$1/srcs"
+  touch "$1/srcs/$1.c"
+  mkdir "$1/includes"
+  touch "$1/includes/$1.h"
+  git clone https://github.com/cmicheledelaney/libft "$1/libft"
+  mv "$1/libft" "$1/srcs/"
+  cp ~/Makefile_template "$1/Makefile"
 fi
