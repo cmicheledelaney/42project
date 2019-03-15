@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ -d $1 ]]; then
+  echo "directory $1 already exists!"
+else
+  mkdir $1
+  mkdir $1/srcs
+  mkdir $1/includes
+  touch $1/srcs/$.c
+  touch $1/includes/$.h
+  git clone https://github.com/cmicheledelaney/libft
+  cp ~/Makefile_template Makefile
+fi
