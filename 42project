@@ -8,7 +8,9 @@ else
   touch "$1/srcs/$1.c"
   mkdir "$1/includes"
   touch "$1/includes/$1.h"
+  echo "$USER" > "$1/author"
   git clone https://github.com/cmicheledelaney/libft "$1/libft"
   mv "$1/libft" "$1/srcs/"
   cp ~/Makefile_template "$1/Makefile"
+  sed -i "s/PROJECTNAME/$1/g" "$1/Makefile"
 fi
