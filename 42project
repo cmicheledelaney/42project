@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# get machine (Linux/Mac/Windows/other) {{{1
+uname_output="$(uname -s)"
+case "${uname_output}" in
+	Linux*)			machine="Linux";;
+	Darwin*)		machine="Mac";;
+	CYGWIN*|MINGW*)	machine="Windows";;
+	*)				machine="UNKNOWN:${uname_output}"
+esac
+
 if [[ -d "$1" || -f "$1" ]]; then
   echo "file or directory $1 already exists!"
 else
@@ -15,5 +24,8 @@ else
     curl https://raw.githubusercontent.com/cmicheledelaney/42project/master/Makefile_template > Makefile_template
   fi
   cp ~/Makefile_template "$1/Makefile"
-  sed -i "s/PROJECTNAME/$1/g" "$1/Makefile"
+  if [[ "${machine}" == "Linux" ]]; then
+    sed -i "s/PROJECTNAME/$1/g" "$1/Makefile"
+  else
+    sed -i "" "s/PROJECTNAME/$1/g" "$1/Makefile"
 fi
