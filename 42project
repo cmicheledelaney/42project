@@ -14,7 +14,7 @@ if [[ -d "$1" || -f "$1" ]]; then
 else
   mkdir "$1"
   mkdir "$1/srcs"
-  touch "$1/srcs/$1.c"
+  touch "$1/srcs/main.c"
   mkdir "$1/includes"
   touch "$1/includes/$1.h"
   echo "$USER" > "$1/author"
