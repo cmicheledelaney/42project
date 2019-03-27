@@ -6,7 +6,7 @@ The structure looks like this:
                              /               /              \             \
                          srcs            includes          Makefile        author
                      /        \            /
-                  libft      foo.c      foo.h
+                  libft      main.c      foo.h
                   
 #### Installation
 `git clone https://github.com/cmicheledelaney/42project`  
