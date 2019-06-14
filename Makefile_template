@@ -6,7 +6,7 @@ OBJ = $(SRC:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-MINISHELL_SRCS = $(addprefix srcs/,$(SRC))
+PROJECTNAME_SRCS = $(addprefix srcs/,$(SRC))
 
 LIB = ./libft/libft.a
 
